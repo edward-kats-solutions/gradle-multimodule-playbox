@@ -1,0 +1,41 @@
+rootProject.name = 'gradle-playbox'
+
+def loadDotEnvFileEnvVars() {
+    def envFile = file('.env')
+
+    if (!envFile.exists()) {
+        return null
+    }
+
+    envFile.eachLine { line ->
+        if (!line) {
+            return null
+        }
+        if (line.startsWith('#')) {
+            return null
+        }
+        def (key, value) = line.split('=', 2)
+        if (key && value) {
+            value = value.trim()
+            System.setProperty(
+                    String.valueOf(key).trim(),
+                    String.valueOf(value)
+            )
+        }
+    }
+}
+
+def loadOSEnvVars() {
+    System.getenv().each { key, value ->
+        if (System.getProperty(key) != null) {
+            println "Warning: Conflict for ENV VAR '${key}' between .env and OS environment. OS value will override"
+        }
+        System.setProperty(key, value)
+    }
+}
+
+
+loadDotEnvFileEnvVars()
+loadOSEnvVars()
+
+include 'starter', 'api', 'impl1', 'impl2'

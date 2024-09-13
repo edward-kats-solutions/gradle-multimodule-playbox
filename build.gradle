@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    apply plugin: 'java'
+    group = 'com.company'
+    version = '1.0'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+subprojects {
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
