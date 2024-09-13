@@ -1,7 +1,7 @@
-# Gradle Multi-Module Project with Environment-based Configuration
+# Gradle Multi-Module Project with Environment-based Configuration (a.k.a. Maven profile for Gradle)
 
 ## Project Overview
-This is a Gradle multi-module Java project that demonstrates dynamic environment-based configuration using `.env` files and OS environment variables. It supports multiple implementations (`impl1` and `impl2`) selected at runtime based on the `PROFILE` environment variable.
+This is a Gradle multi-module Java project that demonstrates dynamic environment-based sources assembly using `.env` files and OS environment variables. It supports multiple implementations (`impl1` and `impl2`) selected at runtime based on the `PROFILE` environment variable.
 
 ## Modules
 - **starter**: The main entry point of the application. It selects which implementation module (`impl1` or `impl2`) to use based on the `PROFILE` environment variable.
