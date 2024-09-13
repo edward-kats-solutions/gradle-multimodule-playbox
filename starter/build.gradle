@@ -10,6 +10,7 @@ if (profile != 'impl1' && profile != 'impl2') {
 def selectedProfile = profile
 
 jar {
+    archiveFileName = 'gradle-multi-module.jar'
     manifest {
         attributes(
                 'Main-Class': 'com.company.Main'
